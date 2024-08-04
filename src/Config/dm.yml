@@ -1,2 +1,23 @@
 id: Siarko.H2s.Deployment.default
 module: Core.Deployment
+
+
+types:
+  V\Siarko\Deployment\Installer\Persistence\Public\Directory: !new \Siarko\Files\Directory
+  V\Siarko\Deployment\Installer\Persistence\Public\Directory\PathProvider: !new \Siarko\Paths\Provider\ProjectPathProvider
+
+arguments:
+  V\Siarko\Deployment\Installer\Persistence\Public\Directory\PathProvider:
+    path: pub
+  V\Siarko\Deployment\Installer\Persistence\Public\Directory:
+    pathProvider: V\Siarko\Deployment\Installer\Persistence\Public\Directory\PathProvider
+  \Siarko\Modules\Paths\ModulePathsProvider:
+    pathTypes:
+      public_files: pub
+  \Siarko\Deployment\Commands\PublicFilesInstall:
+    installer: \Siarko\Deployment\Installer\PublicFiles
+  \Siarko\Deployment\Installer\Provider\PublicFilesProvider:
+    pathProviderPool: \Siarko\Paths\Provider\Pool\PathProviderPool
+
+  \Siarko\Deployment\Installer\Persistence\PublicFilesPersistenceManager:
+    pubDirectory: V\Siarko\Deployment\Installer\Persistence\Public\Directory
