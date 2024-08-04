@@ -1,0 +1,23 @@
+{
+  "name": "h2sf/deployment",
+  "description": "H2SF Deployment Module",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "version": "0.1.0",
+  "type": "library",
+  "authors": [
+    {
+      "name": "H2S",
+      "email": "mateusz@siarko.pl"
+    }
+  ],
+  "require": {
+    "h2sf/cli": "*",
+    "szepeviktor/package-path": "^0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Siarko\\Deployment\\": "src/"
+    }
+  }
+}
