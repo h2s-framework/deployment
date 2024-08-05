@@ -28,7 +28,7 @@ class PublicFilesPersistenceManager
      * @param string $sourcePath
      * @return void
      */
-    public function copyPublicFile(string $sourcePath): void
+    public function deployPublicFile(string $sourcePath): void
     {
         $file = $this->fileFactory->create();
         $file->setPath($sourcePath);

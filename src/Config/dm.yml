@@ -7,17 +7,19 @@ types:
   V\Siarko\Deployment\Installer\Persistence\Public\Directory\PathProvider: !new \Siarko\Paths\Provider\ProjectPathProvider
 
 arguments:
+  # Virtual types for public directory
   V\Siarko\Deployment\Installer\Persistence\Public\Directory\PathProvider:
     path: pub
   V\Siarko\Deployment\Installer\Persistence\Public\Directory:
     pathProvider: V\Siarko\Deployment\Installer\Persistence\Public\Directory\PathProvider
+  # Path provider type for public files in modules
   \Siarko\Modules\Paths\ModulePathsProvider:
     pathTypes:
       public_files: pub
+
   \Siarko\Deployment\Commands\PublicFilesInstall:
     installer: \Siarko\Deployment\Installer\PublicFiles
   \Siarko\Deployment\Installer\Provider\PublicFilesProvider:
     pathProviderPool: \Siarko\Paths\Provider\Pool\PathProviderPool
-
   \Siarko\Deployment\Installer\Persistence\PublicFilesPersistenceManager:
     pubDirectory: V\Siarko\Deployment\Installer\Persistence\Public\Directory

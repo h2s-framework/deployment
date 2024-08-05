@@ -32,7 +32,8 @@ class PublicFiles implements InstallerInterface
         $files = $this->publicFilesProvider->getSourcePublicFiles();
         foreach ($files as $file) {
             try{
-                $this->publicFilesPersistenceManager->copyPublicFile($file);
+                $this->publicFilesPersistenceManager->deployPublicFile($file);
+                $output->writeln("<info>File copied: ".$file." </info>");
             }catch (\Exception $e){
                 $output->writeln("Error copying file: ".$file);
                 $output->writeln($e->getMessage());
