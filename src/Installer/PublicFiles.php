@@ -33,9 +33,9 @@ class PublicFiles implements InstallerInterface
         foreach ($files as $file) {
             try{
                 $this->publicFilesPersistenceManager->deployPublicFile($file);
-                $output->writeln("<info>File copied: ".$file." </info>");
+                $output->writeln("<info>File deployed: ".$file." </info>");
             }catch (\Exception $e){
-                $output->writeln("Error copying file: ".$file);
+                $output->writeln("Error deploying file: ".$file);
                 $output->writeln($e->getMessage());
             }
         }
